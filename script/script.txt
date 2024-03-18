@@ -1,7 +1,7 @@
 CREATE DATABASE PruebaTecnica
-
+use PruebaTecnica;
 CREATE TABLE Products (
-    Product_ID VARCHAR(180) PRIMARY KEY,
+    Product_ID int identity(1,1) PRIMARY KEY,
     Name VARCHAR(100),
     Description VARCHAR(255),
     Price DECIMAL(5,2),
@@ -18,7 +18,7 @@ CREATE TABLE Suppliers (
 
 CREATE TABLE Inventory (
 	Inventory_ID VARCHAR(180),
-    Product_ID VARCHAR(180),
+    Product_ID int,
     Supplier_ID VARCHAR(180),
     Quantity INT,
     Entry_Date DATE,
@@ -55,7 +55,7 @@ CREATE TABLE Sales (
 CREATE TABLE Sale_Details (
     Detail_ID VARCHAR(180) PRIMARY KEY,
     Sale_ID VARCHAR(180),
-    Product_ID VARCHAR(180),
+    Product_ID int,
     Quantity INT,
     Subtotal DECIMAL(7,2),
     FOREIGN KEY (Sale_ID) REFERENCES Sales(Sale_ID),
@@ -82,7 +82,7 @@ CREATE TABLE Orders (
 CREATE TABLE Order_Details (
     Detail_ID VARCHAR(180) PRIMARY KEY,
     Order_ID VARCHAR(180),
-    Product_ID VARCHAR(180),
+    Product_ID int,
     Quantity INT,
     Subtotal DECIMAL(7,2),
     FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID),

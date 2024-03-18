@@ -5,7 +5,7 @@ namespace Reports
     public class SalesReport
     {
         [Key]
-        public string? Product_ID { get; set; }
+        public int? Product_ID { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Category { get; set; }

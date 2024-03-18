@@ -7,8 +7,8 @@ namespace Reports
         [Key]
         public string? Employee_ID { get; set; }
         public string? NombreEmpleado { get; set; }
-        public int Mes { get; set; }
-        public decimal TotalVentas { get; set; }
-        public decimal PorcentajeContribucion { get; set; }
+        public int? Mes { get; set; }
+        public decimal? TotalVentas { get; set; }
+        public decimal? PorcentajeContribucion { get; set; }
     }
 }

@@ -1,0 +1,28 @@
+CREATE PROCEDURE GetSalesByEmployeePerYear
+    @Year INT = NULL
+AS
+BEGIN
+    SELECT
+        e.Employee_ID,
+        e.Name AS NombreEmpleado,
+        MONTH(s.Sale_Date) AS Mes,
+        SUM(sd.Quantity * p.Price) AS TotalVentas,
+        SUM(sd.Quantity * p.Price) / SUM(s.Total) * 100 AS PorcentajeContribucion
+    FROM
+        Employees e
+    LEFT JOIN
+        Sales s ON e.Employee_ID = s.Employee_ID
+    LEFT JOIN
+        Sale_Details sd ON s.Sale_ID = sd.Sale_ID
+    LEFT JOIN
+        Products p ON sd.Product_ID = p.Product_ID
+    WHERE
+        (@Year IS NULL OR YEAR(s.Sale_Date) = @Year)
+    GROUP BY
+        e.Employee_ID,
+        e.Name,
+        MONTH(s.Sale_Date)
+    ORDER BY
+        e.Employee_ID,
+        MONTH(s.Sale_Date);
+END

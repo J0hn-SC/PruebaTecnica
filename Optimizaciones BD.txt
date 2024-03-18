@@ -1,0 +1,25 @@
+Optimizacion en la clases de la Base de Datos
+
+Revisa y analiza las clases del proyecto relacionadas con la Base de Datos. Basándote 
+en estas clases, ¿qué recomendaciones harías para mejorarlas?
+
+	- Las tablas creadas en la base de datos usan como llave primaria un VARCHAR(180),
+	lo cual no es lo adecuado, primero porque la longitud de cadena es bastante 
+	extensa, lo cual puede provocar un menor rendimiento en las operaciones de las 
+	consultas; y segundo porque es preferible usar valores INT Autoincrementales de 
+	manera que se pueda mejorar la eficiencia en el modelo.
+
+	- Algunas columnas de las tablas deben ser mejor expresadas, o ser explícitas, 
+	es decir, columnas como Category perteneciente a la tabla Products, no deberian
+	ser VARCHAR(50) y en su lugar se deberia especificar los posibles valores creando
+	otra tabla llamada Category en la que se puedan especificar los posibles valores
+	o bien usando un CHECK CONSTRAINT para limitar los valores que pueda tener.
+
+	-Algunos atributos de diferentes tablas deberian ser mejor organizados, por ejemplo
+	el caso de las tablas Customers y Suppliers, ambas tienen las columnas Phone, 
+	Adress y Contact(Email) lo cual seria mejor representado a través de una tabla 
+	padre para ambas como Person, de la cual estas dos heredarían de esa manera 
+	incluso se puede manejar mejor las columnas, como en el caso de Phone,
+	primero porque es posible que alguno de ellos posea más de un número telefónico y 
+	segundo porque la forma correcta sería tener una tabla para almacenarlos, lo cual
+	se podria hacer de manera mas organizada usando la clase padre.

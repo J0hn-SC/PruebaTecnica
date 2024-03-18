@@ -1,0 +1,37 @@
+CREATE PROCEDURE GetSalesReportWithParameters
+    @StartDate DATE = NULL,
+    @EndDate DATE = NULL,
+    @EmployeeID VARCHAR(180) = NULL
+AS
+BEGIN
+    SELECT
+        p.Product_ID,
+        p.Name,
+        p.Description,
+        p.Category,
+        YEAR(s.Sale_Date) AS Year,
+        FORMAT(s.Sale_Date, 'MMMM') AS Month,
+        COUNT(*) AS CantidadVentasMensual,
+        MAX(CAST(sd.Quantity AS DECIMAL(18, 2))) AS CantidadVentaMásAlta,
+        e.Name AS NombreEmpleado
+    INTO #SalesReport
+    FROM
+        Sales s
+        INNER JOIN Sale_Details sd ON s.Sale_ID = sd.Sale_ID
+        INNER JOIN Products p ON sd.Product_ID = p.Product_ID
+        INNER JOIN Employees e ON s.Employee_ID = e.Employee_ID
+    WHERE
+        (@StartDate IS NULL OR s.Sale_Date >= @StartDate) AND
+        (@EndDate IS NULL OR s.Sale_Date <= @EndDate) AND
+        (@EmployeeID IS NULL OR s.Employee_ID = @EmployeeID)
+    GROUP BY
+        p.Product_ID,
+        p.Name,
+        p.Description,
+        p.Category,
+        YEAR(s.Sale_Date),
+        FORMAT(s.Sale_Date, 'MMMM'),
+        e.Name;
+
+    SELECT * FROM #SalesReport;
+END;

@@ -1,0 +1,36 @@
+insert into Employees (Employee_ID, Name, Position, Salary, Hiring_Date)
+VALUES ('employee1', 'Empleado1', 'Posicion1', 1000.00, '2018-01-20'),
+('employee2', 'Empleado2', 'Posicion2', 1000.00, '2019-10-20'),
+('employee3', 'Empleado3', 'Posicion3', 1020.00, '2018-05-20');
+
+INSERT INTO Customers (Customer_ID, Name, Phone, Email, Address)
+VALUES ('123456', 'John Doe', '123-456-7890', 'john.doe@example.com', '123 Main St');
+
+INSERT INTO Products (Product_ID, Name, Description, Price,Category) VALUES
+(1, 'Coca Cola', 'Es una gaseosa', 50.00, 'Alimentos'),
+(2, 'Inka Kola', 'Es una gaseosa', 75.00, 'Alimentos'),
+(3, 'Cola', 'Es una gaseosa', 25.00, 'Alimentos'),
+(4, 'Coca Escocesa', 'Es una gaseosa', 100.00, 'Alimentos'),
+(5, 'Fanta', 'Es una gaseosa', 50.00, 'Alimentos'),
+(6, 'Polo', 'Es una prenda', 500.00, 'Ropa'),
+(7, 'Casaca', 'Es una prenda', 250.00, 'Ropa'),
+(8, 'Camisa', 'Es una prenda', 350.00, 'Ropa'),
+(9, 'Polera', 'Es una prenda', 450.00, 'Ropa'),
+
+INSERT INTO Sales (Sale_ID, Employee_ID, Sale_Date, Total, Payment_Method)
+VALUES ('1', 'employee1', '2020-05-20', 1000.00, 'Credito'),
+('2', 'employee1', '2020-05-21', 1000.00, 'Credito'),
+('3', 'employee1', '2020-05-22', 1000.00, 'Credito'),
+('4', 'employee1', '2020-05-23', 1000.00, 'Credito'),
+('5', 'employee1', '2020-05-24', 1000.00, 'Credito'),
+('6', 'employee1', '2020-05-25', 1000.00, 'Credito'),
+('7', 'employee1', '2020-05-26', 1000.00, 'Credito');
+
+Insert into Sale_Details ( Detail_ID, Sale_ID, Product_ID, Quantity , Subtotal) values
+('1', '1', 5, 20, 500.00),
+('2', '1', 6, 14, 500.00),
+('3', '2', 5, 45, 250.00),
+('4', '2', 6, 14, 250.00),
+('5', '2', 7, 42, 250.00),
+('6', '2', 8, 12, 250.00),
+('7', '3', 5, 10, 100.00);

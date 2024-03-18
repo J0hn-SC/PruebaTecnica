@@ -1,0 +1,17 @@
+Optimizaciones
+
+Recomendaciones para optimizar el proceso de inicio de sesión en cuanto al front-end, 
+back-end y la base de datos.
+
+	- En el Frontend, se deberia añadir ciertas validaciones para asegurarse de no 
+	enviar datos erroneos al backend, se debe comprobar que no se envie un campo vaçío,
+	o que se envíe una cadena con un caracter no permitido.
+
+	- En el Backend, seria mejor utilizar ASP.NET Identity el cual ayuda con la
+	autenticación de usuarios ademas de proporcionar protección como CSRF, ya que
+	no es adecuado ni seguro usar solo una comparación de Username y Password de forma
+	tan directa, sin haber algún tipo de seguridad como encriptación o Hashing
+
+	- En la base de datos no seria correcto utilizar valores para Username y Password
+	de forma tan directa como ya se mencióno anteriormente y en su lugar se deberia 
+	usar campos más extensos según las necesidades de seguridad establecidas en Backend 
