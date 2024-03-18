@@ -1,6 +1,6 @@
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
-The project has the objective to be used as a RP Platform, it has all the encesary functionalities to work with Products, and to make Reports about Sales
+The project has the objective to be used as a RP Platform, it has all the necesary functionalities to work with Products, and to make Reports about Sales.
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
